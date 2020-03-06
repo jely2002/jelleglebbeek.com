@@ -1,0 +1,40 @@
+on: push
+name: Deploy to development
+jobs:
+  FTP-Deploy-Action:
+    name: SFTP Upload
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+      with:
+        fetch-depth: 3
+    - uses: chrnorm/deployment-action@releases/v1
+      name: Create GitHub deployment
+      id: deployment
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        target-url: https://jelleglebbeek.com/
+        environment: development
+    - name: Deploy to SFTP server
+      uses: SamKirkland/FTP-Deploy-Action@3.0.0
+      with:
+        ftp-server: sftp://ssh.strato.de/jelleglebbeek/development
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        git-ftp-args: --insecure
+    - name: Update deployment status (success)
+      if: success()
+      uses: chrnorm/deployment-status@releases/v1
+      with:
+        token: ${{ github.token }}
+        target-url: https://jelleglebbeek.com
+        state: success
+        deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+    - name: Update deployment status (failure)
+      if: failure()
+      uses: chrnorm/deployment-status@releases/v1
+      with:
+        token: ${{ github.token }}
+        target-url: https://jelleglebbeek.com
+        state: failure
+        deployment_id: ${{ steps.deployment.outputs.deployment_id }}
