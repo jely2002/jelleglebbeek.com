@@ -23,10 +23,10 @@
 
 //Typed
 var options = {
-  strings: ['Photographer', 'Gamer', 'Mountainbiker', 'Developer', 'Ik ben Jelle.'],
-  typeSpeed: 50,
+  strings: ['Developer', 'Photographer', 'Pc-enthusiast', 'Mountainbiker', 'I am Jelle.'],
+  typeSpeed: 40,
   smartBackspace: true,
-  backSpeed: 40,
+  backSpeed: 30,
   showCursor: false,
   onComplete: function(self) {
     //Callback for typed <=> animate.css
@@ -42,3 +42,24 @@ window.addEventListener("load", function(){
 
 //WOW
 new WOW().init();
+
+
+function onFormSubmit() {
+  console.log("yeeee")
+  grecaptcha.execute();
+}
+
+function onCaptchaSubmit(token) {
+  console.log("boyyy")
+  console.log(token)
+  $.post( "http://backend.jelleglebbeek.com/jelleglebbeek/captcha.php", { name: $("#nameInput").val(), email: $("#emailInput").val(), message: $("#messageInput").val(), token: token, })
+    .done(function( data ) {
+      console.log(data);
+      if(data === "1") {
+        //it be good
+      } else {
+        //it fucked up
+      }
+    });
+  document.getElementById("contact-form").submit();
+}
