@@ -1,6 +1,7 @@
 .masthead {
   height: 100vh;
   min-height: 500px;
+  width: 100%;
   background-image: url('../img/bg.jpg');
   background-size: cover;
   background-position: center;
@@ -72,6 +73,10 @@
   font-size: unset !important;
 }
 
+#skills p {
+  margin-top: 30px;
+}
+
 .navbar-toggler:focus,.navbar-toggler:active {
   outline: none !important;
   box-shadow: none;
@@ -125,3 +130,5 @@ nav {
 _:-ms-fullscreen,:root .lead {
   margin-top: 60px !important;
 }
+
+.grecaptcha-badge { visibility: hidden; }
