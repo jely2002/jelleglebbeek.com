@@ -132,3 +132,23 @@ _:-ms-fullscreen,:root .lead {
 }
 
 .grecaptcha-badge { visibility: hidden; }
+#messageInput { resize: none }
+
+.toast-header {
+  border-bottom: none;
+  color: #fff;
+}
+
+.toast {
+  position: fixed;
+  bottom: 0;
+  left: 10px;
+  visibility: hidden;
+  background-color: rgba(0,0,0,0);
+  border: none;
+}
+
+.toast-body {
+  background-color: #343a40;
+  color: #fff;
+}
