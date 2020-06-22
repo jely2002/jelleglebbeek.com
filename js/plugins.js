@@ -56,10 +56,40 @@ function onCaptchaSubmit(token) {
     .done(function( data ) {
       console.log(data);
       if(data === "1") {
-        //it be good
+        $('.invalid-feedback').css('display', 'none');
+        $('#contact-form').trigger("reset");
+        $('#form-sent-toast').toast('show')
+        $('#form-sent-toast').css('visibility','visible')
       } else {
-        //it fucked up
+        $('.invalid-feedback').css('display', 'initial');
+        $('#form-captcha-fail').toast('show')
+        $('#form-captcha-fail').css('visibility','visible')
       }
+      grecaptcha.reset()
     });
   document.getElementById("contact-form").submit();
 }
+
+$(document).on('click','.close',function (e) {
+  $(this).closest('.toast').css('visibility','hidden')
+});
+
+$('#form-captcha-fail').on('hidden.bs.toast', function () {
+  $('#form-captcha-fail').css('visibility','hidden')
+})
+
+$('#form-sent-toast').on('hidden.bs.toast', function () {
+  $('#form-sent-toast').css('visibility','hidden')
+})
+
+$('#form-sent-toast').toast({
+  autohide: true,
+  animation: true,
+  delay: 5000
+})
+
+$('#form-captcha-fail').toast({
+  autohide: true,
+  animation: true,
+  delay: 10000
+})
