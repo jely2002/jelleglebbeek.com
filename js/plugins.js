@@ -23,7 +23,7 @@
 
 //Typed
 var options = {
-  strings: ['Developer', 'Photographer', 'Pc-enthusiast', 'Mountainbiker', 'I am Jelle.'],
+  strings: ['Developer', 'Photographer', 'Pc-enthusiast', 'I am Jelle.'],
   typeSpeed: 40,
   smartBackspace: true,
   backSpeed: 30,
