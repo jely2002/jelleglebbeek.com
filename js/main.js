@@ -49,3 +49,56 @@ function animateCSS(element, animationName, callback) {
 
   node.addEventListener('animationend', handleAnimationEnd)
 }
+
+//Enable page wide popovers
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
+//Close popover when clicked outsite
+$('body').on('click', function (e) {
+  $('[data-toggle=popover]').each(function () {
+    if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+      $(this).popover('hide');
+    }
+  });
+});
+
+//Copy to clipboard methods
+$('#discordPopover').on('show.bs.popover', function () {
+  copyTextToClipboard("jely2002#3553");
+});
+
+
+function fallbackCopyTextToClipboard(text) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+
+  // Avoid scrolling to bottom
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+  textArea.style.position = "fixed";
+
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying to clipboard was ' + msg);
+  } catch (err) {
+    console.error('Copying to clipboard has failed: ', err);
+  }
+
+  document.body.removeChild(textArea);
+}
+function copyTextToClipboard(text) {
+  if (!navigator.clipboard) {
+    fallbackCopyTextToClipboard(text);
+    return;
+  }
+  navigator.clipboard.writeText(text).then(function(err) {
+    console.error('Copying to clipboard has failed: ', err);
+  });
+}
