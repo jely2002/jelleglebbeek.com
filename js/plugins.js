@@ -43,7 +43,7 @@ window.addEventListener("load", function(){
 //WOW
 new WOW().init();
 
-
+//Form & captcha
 function onFormSubmit() {
   console.log("yeeee")
   grecaptcha.execute();
@@ -70,8 +70,9 @@ function onCaptchaSubmit(token) {
   document.getElementById("contact-form").submit();
 }
 
+//Toasts
 $(document).on('click','.close',function (e) {
-  $(this).closest('.toast').css('visibility','hidden')
+  $(this).closest('.toast').css('visibility','hidden');
 });
 
 $('#form-captcha-fail').on('hidden.bs.toast', function () {
@@ -92,4 +93,25 @@ $('#form-captcha-fail').toast({
   autohide: true,
   animation: true,
   delay: 10000
+})
+
+//Cookies
+$(document).on('click','.closeCookies',function (e) {
+  $(this).closest('.toast').css('visibility','hidden');
+  $.cookie("cookiesAgreed", "true", { expires: 365 });
+});
+
+$('#cookies').on('hidden.bs.toast', function () {
+  $('#form-sent-toast').css('visibility','hidden')
+})
+
+$(document).ready(function() {
+  if($.cookie("cookiesAgreed") == null) {
+    $('#cookies').toast('show').css('visibility','visible')
+  }
+});
+
+$('#cookies').toast({
+  autohide: false,
+  animation: true
 })
