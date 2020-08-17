@@ -49,10 +49,10 @@ function onFormSubmit() {
 }
 
 function onCaptchaSubmit(token) {
-  $.post( "http://backend.jelleglebbeek.com/jelleglebbeek/captcha.php", { name: $("#nameInput").val(), email: $("#emailInput").val(), message: $("#messageInput").val(), token: token, })
+  $.post("http://backend.jelleglebbeek.com/jelleglebbeek/captcha.php", { name: $("#nameInput").val(), email: $("#emailInput").val(), message: $("#messageInput").val(), token: token })
     .done(function( data ) {
       console.log(data);
-      if(data === "1") {
+      if(data === "success") {
         $('.invalid-feedback').css('display', 'none');
         $('#contact-form').trigger("reset");
         $('#form-sent-toast').toast('show')
