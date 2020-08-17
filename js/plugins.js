@@ -45,13 +45,10 @@ new WOW().init();
 
 //Form & captcha
 function onFormSubmit() {
-  console.log("yeeee")
   grecaptcha.execute();
 }
 
 function onCaptchaSubmit(token) {
-  console.log("boyyy")
-  console.log(token)
   $.post( "http://backend.jelleglebbeek.com/jelleglebbeek/captcha.php", { name: $("#nameInput").val(), email: $("#emailInput").val(), message: $("#messageInput").val(), token: token, })
     .done(function( data ) {
       console.log(data);
