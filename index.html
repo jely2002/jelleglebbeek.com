@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Jelle Glebbeek - Portfolio</title>
+  <title data-i18n="title">Jelle Glebbeek - Portfolio</title>
   <meta name="description" content="Een portfolio website voor de matchingdag van de Hogeschool Leiden.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#343a40" />
@@ -22,7 +22,7 @@
 <body data-spy="scroll" data-target="#nav" data-offset="0">
 
 <nav id="nav" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#home">Jelle Glebbeek</a>
+  <a class="navbar-brand" href="#home" data-i18n="nav.title">Jelle Glebbeek</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileToggle" aria-controls="mobileToggle" aria-expanded="false" aria-label="toggle the navigation bar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -33,23 +33,30 @@
         <a class="nav-link" href="#jelle">Jelle</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#skills" data-i18n="nav.skills">Skills</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#projects" data-i18n="nav.projects">Projects</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#hire">Hire me</a>
+        <a class="nav-link" href="#hire" data-i18n="nav.hireme">Hire me</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a>
       </li>
     </ul>
+    <ul class="navbar-nav lang mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <p class=" lang-sel"><a class="lang-opt" onclick="alert('click en')">EN</a> | <a class="lang-opt" onclick="alert('click nl')">NL</a></p>
+      </li>
+    </ul>
+
+    </div>
     <form class="form-inline my-2 my-lg-0">
       <a rel="noreferrer" target="_blank" href="https://twitter.com/jelleglebbeek"><i class="fab fa-twitter"></i></a>
       <a rel="noreferrer" target="_blank" href="https://www.instagram.com/sir__jelly/"><i class="fab fa-instagram"></i></a>
       <a rel="noreferrer" target="_blank" href="https://www.reddit.com/user/Sir_Squidwards"><i class="fab fa-reddit"></i></a>
-      <a id="discordPopover" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content='jely2002#3553<br><strong>Copied to clipboard!<strong>'>
+      <a id="discordPopover" data-i18n="[data-content]nav.discord" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content='jely2002#3553<br><strong>Copied to clipboard!<strong>'>
         <i class="fab fa-discord"></i>
       </a>
       <a rel="noreferrer" target="_blank" href="https://github.com/jely2002"><i class="fab fa-github"></i></a>
@@ -77,7 +84,7 @@
         <div class="header-title">
           <h1 class="animated fadeInDown font-weight-light typed"></h1>
         </div>
-        <p class="lead">More about me? Just scroll down.</p>
+        <p class="lead" data-i18n="masthead.lead">More about me? Just scroll down.</p>
       </div>
       <div class="icon">
         <a href="#jelle"><i class="fas fa-angle-double-down animated fadeIn slower"></i></a>
@@ -93,11 +100,11 @@
   <div class="container">
     <div class="row">
       <div class="wrapper col-md-8 col-lg-8 col-xl-8 col-sm-12">
-        <h2 class="font-weight-light wow fadeInDown">About me</h2>
-        <p class=" wow fadeInUp">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+        <h2 class="font-weight-light wow fadeInDown" data-i18n="about.title">About me</h2>
+        <p class=" wow fadeInUp" data-i18n="about.description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
       </div>
       <div class="col-4 d-none d-sm-none d-md-block">
-        <img class="profilePicture wow fadeInRight" src="./img/pf.png" alt="A picture of Jelle Glebbeek">
+        <img class="profilePicture wow fadeInRight" src="./img/pf.png" data-i18n="[alt]about.image-alt" alt="A picture of Jelle Glebbeek">
       </div>
     </div>
   </div>
@@ -105,65 +112,65 @@
 
 <section id="skills" class="py-5 bg-dark">
   <div class="container text-white font-weight-light">
-    <h2 class="font-weight-light wow fadeInDown">Skills</h2>
+    <h2 class="font-weight-light wow fadeInDown" data-i18n="skills.title">Skills</h2>
     <codersrank-widget style="margin-top: 30px; margin-bottom: 10px; --bg-color: #343a40; --badge-bg-color: #6c757d; --badge-text-color: #fff; --head-bg-color: #17a2b8 !important;" username="jely2002"></codersrank-widget>
-    <p class="wow fadeInDown">Web</p>
+    <p class="wow fadeInDown" data-i18n="skills.web.header">Web</p>
     <div class="progress wow fadeIn">
       <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-      <span class="progress-type">HTML / HTML5</span>
+      <span class="progress-type" data-i18n="skills.web.html">HTML / HTML5</span>
     </div>
     <div class="progress wow fadeIn">
       <div class="progress-bar bg-info" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-      <span class="progress-type">Javascript / ES6</span>
+      <span class="progress-type" data-i18n="skills.web.javascript">Javascript / ES6</span>
     </div>
     <div class="progress wow fadeIn">
       <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-      <span class="progress-type">CSS</span>
+      <span class="progress-type" data-i18n="skills.web.css">CSS</span>
     </div>
-    <p class="wow fadeInDown">Software</p>
+    <p class="wow fadeInDown" data-i18n="skills.software.header">Software</p>
     <div class="progress wow fadeIn">
       <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-      <span class="progress-type">Java</span>
+      <span class="progress-type" data-i18n="skills.software.java">Java</span>
     </div>
     <div class="progress wow fadeIn">
       <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-      <span class="progress-type">Python</span>
+      <span class="progress-type" data-i18n="skills.software.python">Python</span>
     </div>
     <div class="progress wow fadeIn">
       <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-      <span class="progress-type">C#</span>
+      <span class="progress-type" data-i18n="skills.software.csharp">C#</span>
     </div>
-    <p class="wow fadeInDown">Backend / Database</p>
+    <p class="wow fadeInDown" data-i18n="skills.backend.header">Backend / Database</p>
     <div class="progress wow fadeIn">
       <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-      <span class="progress-type">PHP</span>
+      <span class="progress-type" data-i18n="skills.backend.php">PHP</span>
     </div>
     <div class="progress wow fadeIn">
       <div class="progress-bar bg-success" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-      <span class="progress-type">SQL</span>
+      <span class="progress-type" data-i18n="skills.backend.sql">SQL</span>
     </div>
-    <p class="wow fadeInDown">Hardware</p>
+    <p class="wow fadeInDown" data-i18n="skills.hardware.header">Hardware</p>
     <div class="progress wow fadeIn">
       <div class="progress-bar bg-info" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-      <span class="progress-type">PC building</span>
+      <span class="progress-type" data-i18n="skills.hardware.pcbuilding">PC building</span>
     </div>
     <div class="progress wow fadeIn">
       <div class="progress-bar bg-success" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-      <span class="progress-type">Networking</span>
+      <span class="progress-type" data-i18n="skills.hardware.networking">Networking</span>
   </div>
   </div>
 </section>
 
 <section id="projects" class="py-5 bg-light">
   <div class="container">
-    <h2 class="font-weight-light wow fadeInDown">Projects</h2>
+    <h2 class="font-weight-light wow fadeInDown" data-i18n="projects.title">Projects</h2>
     <div class="row justify-content-center">
       <div class="col-12 col-md-4">
         <div class="card w-100 wow fadeIn" style="width: 18rem;">
-          <img src="./img/jelle.png" class="card-img-top" alt="A picture of the website jelleglebbeek.com">
+          <img src="./img/jelle.png" class="card-img-top" data-i18n="[alt]projects.jelleglebbeek.alt" alt="A picture of the website jelleglebbeek.com">
           <div class="card-body">
-            <h5 class="card-title">Jelleglebbeek.com</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Web Development</h6>
+            <h5 class="card-title" data-i18n="projects.jelleglebbeek.title">Jelleglebbeek.com</h5>
+            <h6 class="card-subtitle mb-2 text-muted" data-i18n="projects.category.webdev">Web Development</h6>
             <p class="card-text">The site you are on right now, with some information about me and the projects I work on.</p>
             <a href="https://jelleglebbeek.com" class="btn btn-dark" target="_blank" role="button">Visit</a>
             <a href="https://github.com/jely2002/jelleglebbeek.com" class="btn btn-dark" target="_blank" role="button"><i class="fab fa-github"></i></a>
@@ -172,10 +179,10 @@
       </div>
       <div class="col-12 col-md-4 ">
         <div class="card w-100 wow fadeIn" style="width: 18rem;">
-          <img src="./img/wijna.png" class="card-img-top" alt="A picture of the website galeriewijna.nl">
+          <img src="./img/wijna.png" class="card-img-top" data-i18n="[alt]projects.galeriewijna.alt" alt="A picture of the website galeriewijna.nl">
           <div class="card-body">
-            <h5 class="card-title">Galeriewijna.nl</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Web Development / Angular</h6>
+            <h5 class="card-title" data-i18n="projects.galeriewijna.title">Galeriewijna.nl</h5>
+            <h6 class="card-subtitle mb-2 text-muted" data-i18n="projects.category.webdevangular">Web Development / Angular</h6>
             <p class="card-text">A simple but good looking website where paintings that are up for sale get showcased.</p>
             <a href="http://galeriewijna.nl" class="btn btn-dark" target="_blank" role="button">Visit</a>
             <a href="#" class="btn btn-dark disabled" target="_blank" role="button"><i class="fab fa-github"></i></a>
@@ -184,48 +191,48 @@
       </div>
       <div class="col-12 col-md-4 ">
         <div class="card w-100 wow fadeIn" style="width: 18rem;">
-          <img src="./img/ws.png" class="card-img-top" alt="A picture of the game walk simulator">
+          <img src="./img/ws.png" class="card-img-top" data-i18n="[alt]projects.walksimulator.alt" alt="A picture of the game walk simulator">
           <div class="card-body">
-            <h5 class="card-title">Walk Simulator</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Java / OpenGL</h6>
-            <p class="card-text">A Java LJWGL 3D game I programmed for a school project. Fun fact, this was made with a broken right arm.</p>
-            <a href="https://github.com/jely2002/Walk-Simulator/releases/tag/v1.9.5-alpha" class="btn btn-dark" target="_blank" role="button">Download</a>
+            <h5 class="card-title" data-i18n="projects.walksimulator.title">Walk Simulator</h5>
+            <h6 class="card-subtitle mb-2 text-muted" data-i18n="projects.category.javaopengl">Java / OpenGL</h6>
+            <p class="card-text" data-i18n="projects.walksimulator.text">A Java LJWGL 3D game I programmed for a school project. Fun fact, this was made with a broken right arm.</p>
+            <a href="https://github.com/jely2002/Walk-Simulator/releases/tag/v1.9.5-alpha" class="btn btn-dark" target="_blank" role="button" data-i18n="projects.walksimulator.btn">Download</a>
             <a href="https://github.com/jely2002/Walk-Simulator" class="btn btn-dark" target="_blank" role="button"><i class="fab fa-github"></i></a>
           </div>
         </div>
       </div>
       <div class="col-12 col-md-4 ">
         <div class="card w-100 wow fadeIn" style="width: 18rem;">
-          <img src="./img/ytdl.png" class="card-img-top" alt="2 dices">
+          <img src="./img/ytdl.png" class="card-img-top" data-i18n="[alt]projects.ytdlgui.alt" alt="The youtube-dl-gui logo">
           <div class="card-body">
-            <h5 class="card-title">youtube-dl-gui</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Electron / NodeJS</h6>
-            <p class="card-text">An easy to use program to download YouTube videos and playlists blazingly fast, with a lot of customisation.</p>
-            <a href="https://github.com/jely2002/youtube-dl-gui/releases/latest" class="btn btn-dark" target="_blank" role="button">Download</a>
+            <h5 class="card-title" data-i18n="projects.ytdlgui.title">youtube-dl-gui</h5>
+            <h6 class="card-subtitle mb-2 text-muted" data-i18n="projects.category.electronnode">Electron / NodeJS</h6>
+            <p class="card-text" data-i18n="projects.ytdlgui.text">An easy to use program to download YouTube videos and playlists blazingly fast, with a lot of customisation.</p>
+            <a href="https://github.com/jely2002/youtube-dl-gui/releases/latest" class="btn btn-dark" target="_blank" role="button" data-i18n="projects.ytdlgui.btn">Download</a>
             <a href="https://github.com/jely2002/youtube-dl-gui" class="btn btn-dark" target="_blank" role="button"><i class="fab fa-github"></i></a>
           </div>
         </div>
       </div>
       <div class="col-12 col-md-4 ">
         <div class="card w-100 wow fadeIn" style="width: 18rem;">
-          <img src="./img/gm4.png" class="card-img-top" alt="The logo of GM4">
+          <img src="./img/gm4.png" class="card-img-top" data-i18n="[alt]projects.gm4.alt" alt="The logo of GM4">
           <div class="card-body">
-            <h5 class="card-title">GameMode 4</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Java / Spigot</h6>
-            <p class="card-text">A minecraft plugin derived from the popular GM4 datapacks which adds tons of new features to the game.</p>
-            <a href="#" class="btn btn-dark disabled" target="_blank" role="button">Download</a>
+            <h5 class="card-title" data-i18n="projects.gm4.title">GameMode 4</h5>
+            <h6 class="card-subtitle mb-2 text-muted" data-i18n="projects.category.javaspigot">Java / Spigot</h6>
+            <p class="card-text" data-i18n="projects.gm4.text">A minecraft plugin derived from the popular GM4 datapacks which adds tons of new features to the game.</p>
+            <a href="#" class="btn btn-dark disabled" target="_blank" role="button" data-i18n="projects.gm4.btn">Download</a>
             <a href="https://github.com/jely2002/gm4" class="btn btn-dark" target="_blank" role="button"><i class="fab fa-github"></i></a>
           </div>
         </div>
       </div>
       <div class="col-12 col-md-4 ">
         <div class="card w-100 wow fadeIn" style="width: 18rem;">
-          <img src="./img/pc.png" class="card-img-top" alt="A photo of my computer setup">
+          <img src="./img/pc.png" class="card-img-top" data-i18n="[alt]projects.squidwards.alt" alt="A photo of my computer setup">
           <div class="card-body">
-            <h5 class="card-title">Sir. Squidwards</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Hardware</h6>
-            <p class="card-text">My very own setup where I spend most of my days. The name obviously comes from Spongebob (don't ask why).</p>
-            <a href="https://setuplog.io/setup/AX2BpKXy/sir-squidwards" class="btn btn-dark" target="_blank" role="button">More info</a>
+            <h5 class="card-title" data-i18n="projects.squidwards.title">Sir. Squidwards</h5>
+            <h6 class="card-subtitle mb-2 text-muted" data-i18n="projects.category.hardware">Hardware</h6>
+            <p class="card-text" data-i18n="projects.squidwards.text">My very own setup where I spend most of my days. The name obviously comes from Spongebob (don't ask why).</p>
+            <a href="https://setuplog.io/setup/AX2BpKXy/sir-squidwards" class="btn btn-dark" target="_blank" role="button" data-i18n="projects.squidwards.btn">More info</a>
           </div>
         </div>
       </div>
@@ -235,32 +242,31 @@
 
 <section id="hire" class="py-5 bg-dark">
   <div class="container text-white">
-    <h2 class="font-weight-light wow fadeInDown">I'm available for hire</h2>
-    <p class=" wow fadeInUp">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-
+    <h2 class="font-weight-light wow fadeInDown" data-i18n="hireme.title">I'm available for hire</h2>
+    <p class=" wow fadeInUp" data-i18n="hireme.text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
   </div>
 </section>
 
 <section id="contact" class="py-5 bg-light">
   <div class="container">
-    <h2 class="font-weight-light wow fadeInDown mb-4">Hit me up!</h2>
+    <h2 class="font-weight-light wow fadeInDown mb-4" data-i18n="contact.title">Hit me up!</h2>
     <form id='contact-form' action="javascript:onFormSubmit();">
       <div class="form-group">
-        <label for="nameInput">Name</label>
-        <input type="text" class="form-control" id="nameInput" aria-describedby="emailHelp" required>
+        <label for="nameInput" data-i18n="contact.name">Name</label>
+        <input type="text" class="form-control" id="nameInput" required>
       </div>
       <div class="form-group">
-        <label for="emailInput">E-mail adress</label>
+        <label for="emailInput" data-i18n="contact.email">E-mail adress</label>
         <input type="email" class="form-control" id="emailInput" required>
       </div>
       <div class="form-group">
-        <label for="messageInput">Message</label>
+        <label for="messageInput" data-i18n="contact.message">Message</label>
         <textarea class="form-control" id="messageInput" rows="3" required></textarea>
       </div>
-      <small id="captchaTerms mb-2" class="form-text text-muted">This site is protected by reCAPTCHA and the Google
+      <small id="captchaTerms mb-2" class="form-text text-muted" data-i18n="[html]contact.recaptcha.terms">This site is protected by reCAPTCHA and the Google
         <a href="https://policies.google.com/privacy">Privacy Policy</a> and
         <a href="https://policies.google.com/terms">Terms of Service</a> apply.</small>
-      <div class="invalid-feedback">
+      <div class="invalid-feedback" data-i18n="contact.recaptcha.fail">
         You have failed the captcha, please try submitting the form again.
       </div>
       <div class="g-recaptcha"
@@ -269,7 +275,7 @@
            data-size="invisible"
            data-badge="bottomleft">
       </div>
-      <button id="submit" type="submit" class="btn btn-dark mt-4">Send</button>
+      <button id="submit" type="submit" class="btn btn-dark mt-4" data-i18n="contact.send">Send</button>
     </form>
   </div>
 </section>
@@ -277,12 +283,12 @@
 <footer class="py-2 bg-dark">
  <div class="container-fluid">
    <div class="row justify-content-between align-items-center">
-     <p class="copyright text-white col-md-4 col-8 font-weight-light">&copy; 2020 Jelle Glebbeek</p>
+     <p class="copyright text-white col-md-4 col-8 font-weight-light" data-i18n="footer.copy">&copy; 2020 Jelle Glebbeek</p>
      <form class="form-inline d-flex my-2 my-lg-0 col-md-4 col-8 justify-content-md-end">
        <a rel="noreferrer" target="_blank" href="https://twitter.com/jelleglebbeek"><i class="fab fa-twitter"></i></a>
        <a rel="noreferrer" target="_blank" href="https://www.instagram.com/sir__jelly/"><i class="fab fa-instagram"></i></a>
        <a rel="noreferrer" target="_blank" href="https://www.reddit.com/user/Sir_Squidwards"><i class="fab fa-reddit"></i></a>
-       <a id="discordPopover" data-container="body" data-toggle="popover" data-placement="top" data-html="true" data-content='jely2002#3553<br><strong>Copied to clipboard!<strong>'>
+       <a id="discordPopover" data-i18n="[data-content]nav.discord" data-container="body" data-toggle="popover" data-placement="top" data-html="true" data-content='jely2002#3553<br><strong>Copied to clipboard!<strong>'>
          <i class="fab fa-discord"></i>
        </a>
        <a rel="noreferrer" target="_blank" href="https://github.com/jely2002"><i class="fab fa-github"></i></a>
@@ -296,38 +302,38 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="PictureInfoModal">Picture info</h5>
+        <h5 class="modal-title" id="PictureInfoModal" data-i18n="picinfo.title">Picture info</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="list-group-item d-flex justify-content-between align-items-center" data-i18n="[html]picinfo.location">
             Kuta, Bali, Indonesia
             <span class="badge"><i class="fas fa-map-marked-alt"></i></span>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="list-group-item d-flex justify-content-between align-items-center" data-i18n="[html]picinfo.coords">
             8°45'47.6"S 115°10'22.8"E
             <span class="badge"><i class="fas fa-map-marker-alt"></i></span>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="list-group-item d-flex justify-content-between align-items-center" data-i18n="[html]picinfo.camera">
             Nikon Coolpix P530
             <span class="badge"><i class="fas fa-camera"></i></span>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="list-group-item d-flex justify-content-between align-items-center" data-i18n="[html]picinfo.settings">
             15sec. f/3,7 4,3mm
             <span class="badge"><i class="fas fa-cog"></i></span>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="list-group-item d-flex justify-content-between align-items-center" data-i18n="[html]picinfo.copy">
             Jelle Glebbeek, 2019
             <span class="badge"><i class="fas fa-copyright"></i></span>
           </li>
         </ul>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-dark" data-href='img/non-minified%20images/Stars-over-the-frangipani.jpg' download="Stars-Over-The-Frangipani.jpg" onclick='forceDownload(this)'><i class="fas fa-download"></i> Download</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-dark" data-href='img/non-minified%20images/Stars-over-the-frangipani.jpg' download="Stars-Over-The-Frangipani.jpg" onclick='forceDownload(this)' data-i18n="[html]picinfo.download"><i class="fas fa-download"></i> Download</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-i18n="picinfo.close">Close</button>
       </div>
     </div>
   </div>
@@ -336,7 +342,7 @@
 <div class="toast" id="form-sent-toast" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header bg-success">
     <i class="fas mr-3 fa-paper-plane"></i>
-    <strong class="mr-auto">Your message has been send!</strong>
+    <strong class="mr-auto" data-i18n="toast.messagesend.title">Your message has been send!</strong>
     <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -346,12 +352,12 @@
 <div class="toast" id="form-captcha-fail" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header bg-danger">
     <i class="fas mr-3 fa-exclamation-triangle"></i>
-    <strong class="mr-auto">Unable to send your message...</strong>
+    <strong class="mr-auto" data-i18n="toast.captchafail.title">Unable to send your message...</strong>
     <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="toast-body">
+  <div class="toast-body" data-i18n="toast.captchafail.body">
     You have failed the invisible captcha, please try submitting the form again.
   </div>
 </div>
@@ -359,14 +365,15 @@
 <div class="toast" id="cookies" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header bg-secondary">
     <i class="fas mr-3 fa-cookie-bite"></i>
-    <strong class="mr-auto">Cookies</strong>
+    <strong class="mr-auto" data-i18n="toast.cookies.title">Cookies</strong>
     <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="toast-body d-flex justify-content-end">
+  <div class="toast-body d-flex justify-content-end" data-i18n="[html]toast.cookies.body">
     This site uses cookies to improve the experience, by using this site you agree to the use of cookies.
-    <button class="btn btn-secondary ml-3 closeCookies">Allright!</button>
+    <button class="btn btn-secondary ml-3 closeCookies">Alright!</button>
+  </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha256-0rguYS0qgS6L4qVzANq4kjxPLtvnp5nn2nB5G1lWRv4=" crossorigin="anonymous"></script>
@@ -378,6 +385,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.min.js" integrity="sha512-a0tGMh5o0nCoRDiMVaSmiWgB9s/JqfC+PQZHWANTzIhasvm5eH9NkWTmJ4WloaQWLT8fEzRBjvADgFNDf0WusQ==" crossorigin="anonymous"></script>
+<script src="js/translate.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 <script src="https://profile.codersrank.io/widget/widget.js"></script>

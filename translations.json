@@ -1,0 +1,116 @@
+{
+  "@metadata": {
+    "authors": [
+      "Jelle"
+    ],
+    "last-updated": "2020-08-18",
+    "locale": "en"
+  },
+  "en": {
+    "title": "Jelle Glebbeek - Portfolio",
+    "nav": {
+      "title": "Jelle Glebbeek",
+      "skills": "Skills",
+      "projects": "Projects",
+      "hireme": "Hire me",
+      "contact": "Contact",
+      "discord": "jely2002#3553<br><strong>Copied to clipboard!<strong>"
+    },
+    "masthead": {
+      "lead": "More about me? Just scroll down."
+    },
+    "about": {
+      "title": "About me",
+      "description": "English placeholder",
+      "image-alt": "A picture of Jelle Glebbeek"
+    },
+    "skills": {
+      "title": "Skills",
+      "web": {
+        "header": "Web",
+        "html": "HTML / HTML5",
+        "javascript": "Javascript / ES6",
+        "css": "CSS"
+      },
+      "software": {
+        "header": "Software",
+        "java": "Java",
+        "python": "Python",
+        "csharp": "C#"
+      },
+      "backend": {
+        "header": "Backend / Database",
+        "php": "PHP",
+        "sql": "SQL"
+      },
+      "hardware": {
+        "header": "Hardware",
+        "pcbuilding": "PC building",
+        "networking": "Networking"
+      }
+    },
+    "projects": {
+      "jelleglebbeek": {
+
+      },
+      "galeriewijna": {
+
+      },
+      "walksimulator": {
+
+      },
+      "ytdlgui": {
+
+      },
+      "gm4": {
+
+      },
+      "squidwards": {
+
+      }
+    },
+    "contact": {
+      "title": "Hit me up!",
+      "name": "Name",
+      "email": "E-mail adress",
+      "message": "Message",
+      "send": "Send",
+      "recaptcha": {
+        "terms": "This site is protected by reCAPTCHA and the Google <a href='https://policies.google.com/privacy'>Privacy Policy</a> and <a href='https://policies.google.com/terms'>Terms of Service</a> apply.</small>",
+        "fail": "You have failed the captcha, please try submitting the form again."
+      }
+    },
+    "footer": {
+      "copy": "&copy; 2020 Jelle Glebbeek"
+    },
+    "picinfo": {
+      "title": "Picture info",
+      "location": "Kuta, Bali, Indonesia\n            <span class=\"badge\"><i class=\"fas fa-map-marked-alt\"></i></span>",
+      "coords": " 8°45'47.6\"S 115°10'22.8\"E\n            <span class=\"badge\"><i class=\"fas fa-map-marker-alt\"></i></span>",
+      "camera": "Nikon Coolpix P530\n            <span class=\"badge\"><i class=\"fas fa-camera\"></i></span>",
+      "settings": "15sec. f/3,7 4,3mm\n            <span class=\"badge\"><i class=\"fas fa-cog\"></i></span>",
+      "copy": "Jelle Glebbeek, 2019\n            <span class=\"badge\"><i class=\"fas fa-copyright\"></i></span>",
+      "close": "Close"
+    },
+    "toast": {
+      "messagesend": {
+        "title": "Your message has been send!"
+      },
+      "captchafail": {
+        "title": "Unable to send your message...",
+        "body": "You have failed the invisible captcha, please try submitting the form again."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "body": "This site uses cookies to improve the experience, by using this site you agree to the use of cookies.\n    <button class=\"btn btn-secondary ml-3 closeCookies\">Alright!</button>"
+      }
+    }
+  },
+  "nl": {
+    "appname-title": "അപ്ലിക്കേഷന്‍ ഉദാഹരണം",
+    "appname-sub-title": "jquery.i18n ഉപയോഗിച്ചുള്ള അപ്ലിക്കേഷന്‍ ഉദാഹരണം",
+    "appname-header-introduction": "ആമുഖം",
+    "appname-about": "ഈ അപ്ലിക്കേഷനെപ്പറ്റി",
+    "appname-footer": "അടിക്കുറിപ്പു്"
+  }
+}

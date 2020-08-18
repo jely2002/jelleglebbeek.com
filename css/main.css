@@ -152,3 +152,25 @@ _:-ms-fullscreen,:root .lead {
   background-color: #343a40;
   color: #fff;
 }
+
+.popover-body {
+  text-align: center;
+}
+
+.lang {
+  margin-right: 2% !important;
+  margin-left: auto !important;
+}
+
+.lang-sel {
+  margin: 0 !important;
+  color: rgba(255,255,255,.5);
+}
+
+.lang-opt:hover {
+  color: rgba(255,255,255,.75) !important;
+}
+
+.lang-opt {
+  cursor: pointer;
+}
