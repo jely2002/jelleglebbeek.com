@@ -126,13 +126,20 @@ function initLanguage(cb) {
   }).then(() => {
     $('html').i18n();
     cb($.i18n("masthead.header.final"),$.i18n("masthead.header.photographer"));
-  });
-}
+    ($.i18n().locale === 'en') ? $('.en').css('text-decoration','underline') : $('.nl').css('text-decoration','underline')
+  });}
 
 function changeLanguage(lang) {
   $.i18n().locale = lang;
   $('html').i18n();
   $('.typed').html($.i18n("masthead.header.final"))
+  if(lang === 'en') {
+    $('.en').css('text-decoration','underline')
+    $('.nl').css('text-decoration','none')
+  } else {
+    $('.nl').css('text-decoration','underline')
+    $('.en').css('text-decoration','none')
+  }
 }
 
 function getPreferedLanguage() {
@@ -141,7 +148,6 @@ function getPreferedLanguage() {
       i,
       language;
 
-  // support for HTML 5.1 "navigator.languages"
   if (Array.isArray(nav.languages)) {
     for (i = 0; i < nav.languages.length; i++) {
       language = nav.languages[i];
@@ -151,7 +157,6 @@ function getPreferedLanguage() {
     }
   }
 
-  // support for other well known properties in browsers
   for (i = 0; i < browserLanguagePropertyKeys.length; i++) {
     language = nav[browserLanguagePropertyKeys[i]];
     if (language && language.length) {
