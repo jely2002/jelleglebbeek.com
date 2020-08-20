@@ -22,22 +22,24 @@
 }());
 
 //Typed
-var options = {
-  strings: ['Developer', 'Photographer', 'Pc-enthusiast', 'I am Jelle.'],
-  typeSpeed: 40,
-  smartBackspace: true,
-  backSpeed: 30,
-  showCursor: false,
-  onComplete: function(self) {
-    //Callback for typed <=> animate.css
-    $(".lead").css("opacity", "1");
-    animateCSS('.lead', 'fadeInUp');
-  }
-};
 
 //Init tpyed.js on element when ALL resources are loaded
 window.addEventListener("load", function(){
-  var typed = new Typed('.typed', options);
+  initLanguage((header, photographer) => {
+    var options = {
+      strings: ['Developer', photographer, 'Pc-enthusiast', header],
+      typeSpeed: 40,
+      smartBackspace: true,
+      backSpeed: 30,
+      showCursor: false,
+      onComplete: function (self) {
+        //Callback for typed <=> animate.css
+        $(".lead").css("opacity", "1");
+        animateCSS('.lead', 'fadeInUp');
+      }
+    };
+    var typed = new Typed('.typed', options);
+  })
 });
 
 //WOW
@@ -112,3 +114,49 @@ $('#cookies').toast({
   autohide: false,
   animation: true
 })
+
+//i18n
+function initLanguage(cb) {
+  $.i18n({
+    locale: (getPreferedLanguage() === null) ? 'en' : getPreferedLanguage().slice(0,2)
+  });
+  $.i18n().load({
+    en: './translations/en.json',
+    nl: './translations/nl.json'
+  }).then(() => {
+    $('html').i18n();
+    cb($.i18n("masthead.header.final"),$.i18n("masthead.header.photographer"));
+  });
+}
+
+function changeLanguage(lang) {
+  $.i18n().locale = lang;
+  $('html').i18n();
+  $('.typed').html($.i18n("masthead.header.final"))
+}
+
+function getPreferedLanguage() {
+  let nav = window.navigator,
+      browserLanguagePropertyKeys = ['language', 'browserLanguage', 'systemLanguage', 'userLanguage'],
+      i,
+      language;
+
+  // support for HTML 5.1 "navigator.languages"
+  if (Array.isArray(nav.languages)) {
+    for (i = 0; i < nav.languages.length; i++) {
+      language = nav.languages[i];
+      if (language && language.length) {
+        return language;
+      }
+    }
+  }
+
+  // support for other well known properties in browsers
+  for (i = 0; i < browserLanguagePropertyKeys.length; i++) {
+    language = nav[browserLanguagePropertyKeys[i]];
+    if (language && language.length) {
+      return language;
+    }
+  }
+  return null;
+}

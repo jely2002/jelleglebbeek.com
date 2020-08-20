@@ -47,7 +47,7 @@
     </ul>
     <ul class="navbar-nav lang mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <p class=" lang-sel"><a class="lang-opt" onclick="alert('click en')">EN</a> | <a class="lang-opt" onclick="alert('click nl')">NL</a></p>
+        <p class=" lang-sel"><a class="lang-opt" onclick="changeLanguage('en');">EN</a> | <a class="lang-opt" onclick="changeLanguage('nl');">NL</a></p>
       </li>
     </ul>
 
@@ -372,7 +372,7 @@
   </div>
   <div class="toast-body d-flex justify-content-end" data-i18n="[html]toast.cookies.body">
     This site uses cookies to improve the experience, by using this site you agree to the use of cookies.
-    <button class="btn btn-secondary ml-3 closeCookies">Alright!</button>
+    <button class="btn btn-secondary ml-3 closeCookies" data-i18n="toast.cookies.btn">Alright!</button>
   </div>
 </div>
 
@@ -385,8 +385,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.min.js" integrity="sha512-a0tGMh5o0nCoRDiMVaSmiWgB9s/JqfC+PQZHWANTzIhasvm5eH9NkWTmJ4WloaQWLT8fEzRBjvADgFNDf0WusQ==" crossorigin="anonymous"></script>
-<script src="js/translate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@wikimedia/jquery.i18n@1.0.7/src/jquery.i18n.js" integrity="sha256-HS4Vr2cwLTnr3mx7CXXGroUdpnLFQEOJFGO8mRtivIQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@wikimedia/jquery.i18n@1.0.7/src/jquery.i18n.messagestore.js" integrity="sha256-nSrCbN/xvYu7RUekMoyinhTepWY4PYcURVV03klB0RI=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@wikimedia/jquery.i18n@1.0.7/src/jquery.i18n.fallbacks.js" integrity="sha256-cmL5JZyTXPbSGYkM6xCFRPbOVtxPvSNqC6wx+JUVbNg=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@wikimedia/jquery.i18n@1.0.7/src/jquery.i18n.language.js" integrity="sha256-+pdu2Ovunt2MgcdQw0OEKR/DUkTSwYUmZXycDYBORBU=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@wikimedia/jquery.i18n@1.0.7/src/jquery.i18n.parser.js" integrity="sha256-W97ouqzCzTffrqDPhRHfUlCvFLuTeVCnPQLdeR1j3VM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@wikimedia/jquery.i18n@1.0.7/src/jquery.i18n.emitter.js" integrity="sha256-EcbmpPmVwdU0U8cLnHYJeK0RFEoZNIy0CAmHMSRh2dI=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@wikimedia/jquery.i18n@1.0.7/src/jquery.i18n.emitter.bidi.js" integrity="sha256-9o7Wx1+RORANTMsD+rxR4z7v1BXO0ELijEzUI1qJaR0=" crossorigin="anonymous"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 <script src="https://profile.codersrank.io/widget/widget.js"></script>
