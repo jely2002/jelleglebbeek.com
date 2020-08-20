@@ -102,3 +102,19 @@ function copyTextToClipboard(text) {
     console.error('Copying to clipboard has failed: ', err);
   });
 }
+
+//Automagically set age
+$("#age").html(calcAge(2002,6,9))
+function calcAge(year, month, day) {
+  const now = new Date();
+  let age = now.getFullYear() - year;
+  const mdif = now.getMonth() - month + 1;
+  if (mdif < 0) {
+    --age;
+  }
+  else if (mdif === 0) {
+    let ddif = now.getDate() - day;
+    if (ddif < 0) --age;
+  }
+  return age;
+}
