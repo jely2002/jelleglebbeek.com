@@ -98,9 +98,7 @@ function copyTextToClipboard(text) {
     fallbackCopyTextToClipboard(text);
     return;
   }
-  navigator.clipboard.writeText(text).then(function(err) {
-    console.error('Copying to clipboard has failed: ', err);
-  });
+  navigator.clipboard.writeText(text);
 }
 
 //Automagically set age
