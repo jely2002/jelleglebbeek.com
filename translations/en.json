@@ -78,7 +78,7 @@
   "contact.recaptcha.fail": "You have failed the captcha, please try submitting the form again.",
   "footer.copy": "&copy; 2020 Jelle Glebbeek" ,
   "hireme.title": "Hire me",
-  "hireme.text": "English placeholder",
+  "hireme.text": "Do you have a project you need a developer for? I have tons of experience with all kinds of programming languages and projects. Contact me below if you are interested in hiring me for a project, or if you simply want some more information about the services I can provide.",
   "picinfo.title": "Picture info",
   "picinfo.location": "Kuta, Bali, Indonesia\n            <span class=\"badge\"><i class=\"fas fa-map-marked-alt\"></i></span>",
   "picinfo.coords": " 8°45'47.6\"S 115°10'22.8\"E\n            <span class=\"badge\"><i class=\"fas fa-map-marker-alt\"></i></span>",
