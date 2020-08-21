@@ -6,4 +6,4 @@
 
 # TECHNOLOGY COLOPHON
 
-    CSS3, HTML5, jQuery, Modernizr, Normalize.css, Bootstrap
+    CSS3, HTML5, jQuery, Bootstrap
