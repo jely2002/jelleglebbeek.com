@@ -1,12 +1,13 @@
 {
   "short_name": "jelleglebbeek.com",
   "name": "Portfolio site of Jelle Glebbeek",
+  "display": "browser",
   "icons": [{
     "src": "icon.png",
     "type": "image/png",
-    "sizes": "192x192"
+    "sizes": "300x300"
   }],
-  "start_url": "/?utm_source=homescreen",
+  "start_url": "/",
   "background_color": "#343a40",
   "theme_color": "#343a40"
 }
