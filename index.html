@@ -57,14 +57,14 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 d-none d-lg-block">
-      <a rel="noopener" target="_blank" href="https://twitter.com/jelleglebbeek"><i class="fab fa-twitter"></i></a>
-      <a rel="noopener" target="_blank" href="https://www.instagram.com/sir__jelly/"><i class="fab fa-instagram"></i></a>
-      <a rel="noopener" target="_blank" href="https://www.reddit.com/user/Sir_Squidwards"><i class="fab fa-reddit"></i></a>
-      <a id="discordPopover" data-i18n="[data-content]nav.discord" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content='jely2002#3553<br><strong>Copied to clipboard!<strong>'>
+      <a rel="noopener" target="_blank" href="https://twitter.com/jelleglebbeek" destination="twitter"><i class="fab fa-twitter"></i></a>
+      <a rel="noopener" target="_blank" href="https://www.instagram.com/sir__jelly/" destination="instagram"><i class="fab fa-instagram"></i></a>
+      <a rel="noopener" target="_blank" href="https://www.reddit.com/user/Sir_Squidwards" destination="reddit"><i class="fab fa-reddit"></i></a>
+      <a id="discordPopover" destination="discord" data-i18n="[data-content]nav.discord" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content='jely2002#3553<br><strong>Copied to clipboard!<strong>'>
         <i class="fab fa-discord"></i>
       </a>
-      <a rel="noopener" target="_blank" href="https://github.com/jely2002"><i class="fab fa-github"></i></a>
-      <a rel="noopener" target="_blank" href="https://steamcommunity.com/id/jely2002"><i class="fab fa-steam"></i></a>
+      <a rel="noopener" destination="github" target="_blank" href="https://github.com/jely2002"><i class="fab fa-github"></i></a>
+      <a rel="noopener" destination="steam" target="_blank" href="https://steamcommunity.com/id/jely2002"><i class="fab fa-steam"></i></a>
     </form>
     </div>
 </nav>
@@ -82,7 +82,7 @@
         <a href="#jelle"><i class="fas fa-angle-double-down animated fadeIn slower"></i></a>
       </div>
       <div class="info-icon">
-        <a href="#" data-toggle="modal" data-target="#pictureInfo"><i class="fas fa-info animated fadeIn slower"></i></a>
+        <a id="pictureInfoBtn" href="#" data-toggle="modal" data-target="#pictureInfo"><i class="fas fa-info animated fadeIn slower"></i></a>
       </div>
     </div>
   </div>
@@ -192,7 +192,7 @@
     <h2 class="font-weight-light wow fadeIn"data-i18n="projects.title">Projects</h2>
     <div class="row justify-content-center">
       <div class="col-12 col-md-4">
-        <div class="card w-100 wow fadeIn" style="width: 18rem;">
+        <div class="card wow fadeIn">
           <img src="./img/jelle.png" class="card-img-top" data-i18n="[alt]projects.jelleglebbeek.alt" alt="A picture of the website jelleglebbeek.com">
           <div class="card-body">
             <h5 class="card-title" data-i18n="projects.jelleglebbeek.title">Jelleglebbeek.com</h5>
@@ -204,7 +204,7 @@
         </div>
       </div>
       <div class="col-12 col-md-4 ">
-        <div class="card w-100 wow fadeIn " data-wow-delay="0.25s" style="width: 18rem;">
+        <div class="card wow fadeIn " data-wow-delay="0.25s">
           <img src="./img/wijna.png" class="card-img-top" data-i18n="[alt]projects.galeriewijna.alt" alt="A picture of the website galeriewijna.nl">
           <div class="card-body">
             <h5 class="card-title" data-i18n="projects.galeriewijna.title">Galeriewijna.nl</h5>
@@ -216,7 +216,7 @@
         </div>
       </div>
       <div class="col-12 col-md-4 ">
-        <div class="card w-100 wow fadeIn" data-wow-delay="0.50s" style="width: 18rem;">
+        <div class="card wow fadeIn" data-wow-delay="0.50s">
           <img src="./img/ws.jpg" class="card-img-top" data-i18n="[alt]projects.walksimulator.alt" alt="A picture of the game walk simulator">
           <div class="card-body">
             <h5 class="card-title" data-i18n="projects.walksimulator.title">Walk Simulator</h5>
@@ -228,7 +228,7 @@
         </div>
       </div>
       <div class="col-12 col-md-4 ">
-        <div class="card w-100 wow fadeIn" style="width: 18rem;">
+        <div class="card wow fadeIn">
           <img src="./img/ytdl.png" class="card-img-top" data-i18n="[alt]projects.ytdlgui.alt" alt="The youtube-dl-gui logo">
           <div class="card-body">
             <h5 class="card-title" data-i18n="projects.ytdlgui.title">youtube-dl-gui</h5>
@@ -240,7 +240,7 @@
         </div>
       </div>
       <div class="col-12 col-md-4 ">
-        <div class="card w-100 wow fadeIn" data-wow-delay="0.25s" style="width: 18rem;">
+        <div class="card wow fadeIn" data-wow-delay="0.25s">
           <img src="./img/gm4.png" class="card-img-top" data-i18n="[alt]projects.gm4.alt" alt="The logo of GM4">
           <div class="card-body">
             <h5 class="card-title" data-i18n="projects.gm4.title">GameMode 4</h5>
@@ -252,7 +252,7 @@
         </div>
       </div>
       <div class="col-12 col-md-4 ">
-        <div class="card w-100 wow fadeIn" data-wow-delay="0.50s" style="width: 18rem;">
+        <div class="card wow fadeIn" data-wow-delay="0.50s" >
           <img src="./img/pc.png" class="card-img-top" data-i18n="[alt]projects.squidwards.alt" alt="A photo of my computer setup">
           <div class="card-body">
             <h5 class="card-title" data-i18n="projects.squidwards.title">Sir. Squidwards</h5>
@@ -314,14 +314,14 @@
    <div class="row justify-content-between align-items-center">
      <p class="copyright text-white col-md-4 col-8 font-weight-light" data-i18n="[html]footer.copy">&copy; 2020 Jelle Glebbeek</p>
      <form class="form-inline d-flex my-2 my-lg-0 col-md-4 col-8 justify-content-md-end">
-       <a rel="noopener" target="_blank" href="https://twitter.com/jelleglebbeek"><i class="fab fa-twitter"></i></a>
-       <a rel="noopener" target="_blank" href="https://www.instagram.com/sir__jelly/"><i class="fab fa-instagram"></i></a>
-       <a rel="noopener" target="_blank" href="https://www.reddit.com/user/Sir_Squidwards"><i class="fab fa-reddit"></i></a>
-       <a id="discordPopover" data-i18n="[data-content]nav.discord" data-container="body" data-toggle="popover" data-placement="top" data-html="true" data-content='jely2002#3553<br><strong>Copied to clipboard!<strong>'>
+       <a rel="noopener" destination="twitter" target="_blank" href="https://twitter.com/jelleglebbeek"><i class="fab fa-twitter"></i></a>
+       <a rel="noopener" destination="instagram" target="_blank" href="https://www.instagram.com/sir__jelly/"><i class="fab fa-instagram"></i></a>
+       <a rel="noopener" destination="reddit" target="_blank" href="https://www.reddit.com/user/Sir_Squidwards"><i class="fab fa-reddit"></i></a>
+       <a id="discordPopover" destination="discord" data-i18n="[data-content]nav.discord" data-container="body" data-toggle="popover" data-placement="top" data-html="true" data-content='jely2002#3553<br><strong>Copied to clipboard!<strong>'>
          <i class="fab fa-discord"></i>
        </a>
-       <a rel="noopener" target="_blank" href="https://github.com/jely2002"><i class="fab fa-github"></i></a>
-       <a rel="noopener" target="_blank" href="https://steamcommunity.com/id/jely2002"><i class="fab fa-steam"></i></a>
+       <a rel="noopener" destination="github" target="_blank" href="https://github.com/jely2002"><i class="fab fa-github"></i></a>
+       <a rel="noopener" destination="steam" target="_blank" href="https://steamcommunity.com/id/jely2002"><i class="fab fa-steam"></i></a>
      </form>
    </div>
  </div>

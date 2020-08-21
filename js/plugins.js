@@ -59,10 +59,18 @@ function onCaptchaSubmit(token) {
         $('#contact-form').trigger("reset");
         $('#form-sent-toast').toast('show')
         $('#form-sent-toast').css('visibility','visible')
+        gtag('event', 'send', {
+          'event_category': 'contact',
+          'event_label': 'success'
+          });
       } else {
         $('.invalid-feedback').css('display', 'initial');
         $('#form-captcha-fail').toast('show')
         $('#form-captcha-fail').css('visibility','visible')
+        gtag('event', 'send', {
+          'event_category': 'contact',
+          'event_label': 'failure'
+        });
       }
       grecaptcha.reset()
     });
@@ -98,6 +106,10 @@ $('#form-captcha-fail').toast({
 $(document).on('click','.closeCookies',function (e) {
   $(this).closest('.toast').css('visibility','hidden');
   $.cookie("cookiesAgreed", "true", { expires: 365 });
+  gtag('event', 'click', {
+    'event_category': 'cookies',
+    'event_label': 'accept'
+  });
 });
 
 $('#cookies').on('hidden.bs.toast', function () {
@@ -140,6 +152,10 @@ function changeLanguage(lang) {
     $('.nl').css('text-decoration','underline')
     $('.en').css('text-decoration','none')
   }
+  gtag('event', 'click', {
+    'event_category': 'language',
+    'event_label': lang
+  });
 }
 
 function getPreferedLanguage() {
@@ -165,3 +181,33 @@ function getPreferedLanguage() {
   }
   return null;
 }
+
+//gtag events
+$(".nav-item").on('click', function(event) {
+  gtag('event', 'click', {
+    'event_category': 'navigation',
+    'event_label': $(event.target).html()
+  });
+});
+
+$(".form-inline > a").on('click', function(event) {
+  gtag('event', 'click', {
+    'event_category': 'socials',
+    'event_label': $(event.target).attr('destination')
+  });
+});
+
+$('#pictureInfoBtn').on('click', function(event) {
+  gtag('event', 'click', {
+    'event_category': 'picture-info'
+  });
+});
+
+$('a').on('click', function(event) {
+  if($(event.target).attr('href') != null && $(event.target).attr('href').slice(0,1) !== "#") {
+    gtag('event', 'click', {
+      'event_category': 'external-link',
+      'event_label': $(event.target).attr('href')
+    });
+  }
+});
