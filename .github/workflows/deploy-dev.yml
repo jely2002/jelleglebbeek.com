@@ -16,7 +16,7 @@ jobs:
       id: deployment
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        target-url: https://jelleglebbeek.com/
+        target_url: https://jelleglebbeek.com/
         environment: development
     - name: Deploy to SFTP server
       uses: SamKirkland/FTP-Deploy-Action@3.0.0
@@ -30,7 +30,7 @@ jobs:
       uses: chrnorm/deployment-status@releases/v1
       with:
         token: ${{ github.token }}
-        target-url: https://jelleglebbeek.com
+        target_url: https://jelleglebbeek.com
         state: success
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
     - name: Update deployment status (failure)
@@ -38,6 +38,6 @@ jobs:
       uses: chrnorm/deployment-status@releases/v1
       with:
         token: ${{ github.token }}
-        target-url: https://jelleglebbeek.com
+        target_url: https://jelleglebbeek.com
         state: failure
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
