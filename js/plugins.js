@@ -191,10 +191,12 @@ $(".nav-item").on('click', function(event) {
 });
 
 $(".form-inline > a").on('click', function(event) {
-  gtag('event', 'click', {
-    'event_category': 'socials',
-    'event_label': $(event.target).attr('destination')
-  });
+  if($(event.target).attr('destination') != null) {
+    gtag('event', 'click', {
+      'event_category': 'socials',
+      'event_label': $(event.target).attr('destination')
+    });
+  }
 });
 
 $('#pictureInfoBtn').on('click', function(event) {
