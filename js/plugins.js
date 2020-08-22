@@ -184,17 +184,19 @@ function getPreferedLanguage() {
 
 //gtag events
 $(".nav-item").on('click', function(event) {
-  gtag('event', 'click', {
-    'event_category': 'navigation',
-    'event_label': $(event.target).html()
-  });
+  if(!($(event.target).hasClass("en") || $(event.target).hasClass("nl"))) {
+    gtag('event', 'click', {
+      'event_category': 'navigation',
+      'event_label': $(event.target).html()
+    });
+  }
 });
 
 $(".form-inline > a").on('click', function(event) {
-  if($(event.target).attr('destination') != null) {
+  if($(event.target).parent().attr('destination') != null) {
     gtag('event', 'click', {
       'event_category': 'socials',
-      'event_label': $(event.target).attr('destination')
+      'event_label': $(event.target).parent().attr('destination')
     });
   }
 });
