@@ -101,6 +101,18 @@ function copyTextToClipboard(text) {
   navigator.clipboard.writeText(text);
 }
 
+//Hide the codersrank widget when the API is down
+$.ajax({
+  url: "https://api.codersrank.io/app/candidate/GetScore",
+  type: 'GET',
+  statusCode: {
+    500: function () {
+      $('codersrank-widget').css('display', 'none');
+    }
+  }
+});
+
+
 //Automagically set age
 $("#age").html(calcAge(2002,6,9))
 function calcAge(year, month, day) {
