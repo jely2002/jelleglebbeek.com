@@ -21,26 +21,21 @@
   }
 }());
 
-//Typed
-
-//Init tpyed.js on element when ALL resources are loaded
-window.addEventListener("load", function(){
-  initLanguage((header, photographer) => {
-    var options = {
-      strings: ['Developer', photographer, 'Pc-enthusiast', header],
-      typeSpeed: 40,
-      smartBackspace: true,
-      backSpeed: 30,
-      showCursor: false,
-      onComplete: function (self) {
-        //Callback for typed <=> animate.css
-        $(".lead").css("opacity", "1");
-        animateCSS('.lead', 'fadeInUp');
-      }
-    };
-    var typed = new Typed('.typed', options);
-  })
-});
+//Init Typed.js
+initLanguage((header, photographer) => {
+  const options = {
+    strings: ['Developer', photographer, 'Pc-enthusiast', header],
+    typeSpeed: 40,
+    smartBackspace: true,
+    backSpeed: 30,
+    showCursor: false,
+    onComplete: function (self) {
+      $(".lead").css("opacity", "1");
+      animateCSS('.lead', 'fadeInUp');
+    }
+  };
+  const typed = new Typed('.typed', options);
+})
 
 //WOW
 new WOW().init();
