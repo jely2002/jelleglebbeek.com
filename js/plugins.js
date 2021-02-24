@@ -1,3 +1,5 @@
+let games = null;
+
 // Avoid `console` errors in browsers that lack a console.
 (function() {
   var method;
@@ -21,26 +23,21 @@
   }
 }());
 
-//Typed
-
-//Init tpyed.js on element when ALL resources are loaded
-window.addEventListener("load", function(){
-  initLanguage((header, photographer) => {
-    var options = {
-      strings: ['Developer', photographer, 'Pc-enthusiast', header],
+//Init Typed.js after loading the languages
+initLanguage().then((data) => {
+    const options = {
+      strings: ['Developer', data[1], 'Pc-enthusiast', data[0]],
       typeSpeed: 40,
       smartBackspace: true,
       backSpeed: 30,
       showCursor: false,
       onComplete: function (self) {
-        //Callback for typed <=> animate.css
         $(".lead").css("opacity", "1");
         animateCSS('.lead', 'fadeInUp');
       }
     };
-    var typed = new Typed('.typed', options);
-  })
-});
+    const typed = new Typed('.typed', options);
+})
 
 //WOW
 new WOW().init();
@@ -52,28 +49,28 @@ function onFormSubmit() {
 
 function onCaptchaSubmit(token) {
   $.post("captcha.php", { name: $("#nameInput").val(), email: $("#emailInput").val(), message: $("#messageInput").val(), token: token })
-    .done(function( data ) {
-      console.log(data);
-      if(data === "success") {
-        $('.invalid-feedback').css('display', 'none');
-        $('#contact-form').trigger("reset");
-        $('#form-sent-toast').toast('show')
-        $('#form-sent-toast').css('visibility','visible')
-        gtag('event', 'send', {
-          'event_category': 'contact',
-          'event_label': 'success'
+      .done(function( data ) {
+        console.log(data);
+        if(data === "success") {
+          $('.invalid-feedback').css('display', 'none');
+          $('#contact-form').trigger("reset");
+          $('#form-sent-toast').toast('show')
+          $('#form-sent-toast').css('visibility','visible')
+          gtag('event', 'send', {
+            'event_category': 'contact',
+            'event_label': 'success'
           });
-      } else {
-        $('.invalid-feedback').css('display', 'initial');
-        $('#form-captcha-fail').toast('show')
-        $('#form-captcha-fail').css('visibility','visible')
-        gtag('event', 'send', {
-          'event_category': 'contact',
-          'event_label': 'failure'
-        });
-      }
-      grecaptcha.reset()
-    });
+        } else {
+          $('.invalid-feedback').css('display', 'initial');
+          $('#form-captcha-fail').toast('show')
+          $('#form-captcha-fail').css('visibility','visible')
+          gtag('event', 'send', {
+            'event_category': 'contact',
+            'event_label': 'failure'
+          });
+        }
+        grecaptcha.reset()
+      });
   document.getElementById("contact-form").submit();
 }
 
@@ -128,18 +125,22 @@ $('#cookies').toast({
 })
 
 //i18n
-function initLanguage(cb) {
-  $.i18n({
-    locale: (getPreferedLanguage() === null) ? 'en' : getPreferedLanguage().slice(0,2)
-  });
-  $.i18n().load({
-    en: './translations/en.json',
-    nl: './translations/nl.json'
-  }).then(() => {
-    $('html').i18n();
-    cb($.i18n("masthead.header.final"),$.i18n("masthead.header.photographer"));
-    ($.i18n().locale === 'en') ? $('.en').css('text-decoration','underline') : $('.nl').css('text-decoration','underline')
-  });}
+async function initLanguage() {
+  return await new Promise((resolve) => {
+    $.i18n({
+      locale: (getPreferedLanguage() === null) ? 'en' : getPreferedLanguage().slice(0,2)
+    });
+    $.i18n().load({
+      en: './translations/en.json',
+      nl: './translations/nl.json'
+    }).then(async () => {
+      $('html').i18n();
+      ($.i18n().locale === 'en') ? $('.en').css('text-decoration','underline') : $('.nl').css('text-decoration','underline')
+      await getGameAmount()
+      resolve([$.i18n("masthead.header.final"),$.i18n("masthead.header.photographer")]);
+    });
+  })
+}
 
 function changeLanguage(lang) {
   $.i18n().locale = lang;
@@ -152,6 +153,7 @@ function changeLanguage(lang) {
     $('.nl').css('text-decoration','underline')
     $('.en').css('text-decoration','none')
   }
+  getGameAmount()
   gtag('event', 'click', {
     'event_category': 'language',
     'event_label': lang
@@ -180,6 +182,30 @@ function getPreferedLanguage() {
     }
   }
   return null;
+}
+
+//Get amount of games
+async function getGameAmount() {
+  await new Promise((resolve => {
+    if(games == null) {
+      $.get("steamgames.php", function(data) {
+        if(data === "") {
+          games = "350+"
+        } else {
+          games = data
+        }
+        let replaced = $('.aboutDesc').html().replace("350+", games)
+        $('.aboutDesc').html(replaced)
+        resolve()
+      }).fail(function () {
+        resolve()
+      });
+    } else {
+      let replaced = $('.aboutDesc').html().replace("350+", games);
+      $('.aboutDesc').html(replaced)
+      resolve()
+    }
+  }));
 }
 
 //gtag events
