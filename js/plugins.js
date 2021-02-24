@@ -194,17 +194,14 @@ async function getGameAmount() {
         } else {
           games = data
         }
-        let replaced = $('.aboutDesc').html().replace("%s", games)
+        let replaced = $('.aboutDesc').html().replace("350+", games)
         $('.aboutDesc').html(replaced)
         resolve()
       }).fail(function () {
-        let replaced = $('.aboutDesc').html().replace("%s", "350+");
-        $('.aboutDesc').html(replaced)
-        games = "350+"
         resolve()
       });
     } else {
-      let replaced = $('.aboutDesc').html().replace("%s", games);
+      let replaced = $('.aboutDesc').html().replace("350+", games);
       $('.aboutDesc').html(replaced)
       resolve()
     }
