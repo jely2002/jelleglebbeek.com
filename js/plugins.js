@@ -1,3 +1,5 @@
+let games = null;
+
 // Avoid `console` errors in browsers that lack a console.
 (function() {
   var method;
@@ -21,7 +23,7 @@
   }
 }());
 
-//Init Typed.js
+//Init Typed.js after loading the languages
 initLanguage((header, photographer) => {
   const options = {
     strings: ['Developer', photographer, 'Pc-enthusiast', header],
@@ -134,6 +136,7 @@ function initLanguage(cb) {
     $('html').i18n();
     cb($.i18n("masthead.header.final"),$.i18n("masthead.header.photographer"));
     ($.i18n().locale === 'en') ? $('.en').css('text-decoration','underline') : $('.nl').css('text-decoration','underline')
+    getGameAmount()
   });}
 
 function changeLanguage(lang) {
@@ -147,6 +150,7 @@ function changeLanguage(lang) {
     $('.nl').css('text-decoration','underline')
     $('.en').css('text-decoration','none')
   }
+  getGameAmount()
   gtag('event', 'click', {
     'event_category': 'language',
     'event_label': lang
@@ -175,6 +179,24 @@ function getPreferedLanguage() {
     }
   }
   return null;
+}
+
+//Get amount of games
+function getGameAmount() {
+  if(games == null) {
+    $.get("steamgames.php", function(data) {
+      games = data
+      let replaced = $('.aboutDesc').html().replace("%s", data)
+      $('.aboutDesc').html(replaced)
+    }).fail(function () {
+      let replaced = $('.aboutDesc').html().replace("%s", "350+");
+      $('.aboutDesc').html(replaced)
+      games = "350+"
+    });
+  } else {
+    let replaced = $('.aboutDesc').html().replace("%s", games);
+    $('.aboutDesc').html(replaced)
+  }
 }
 
 //gtag events
