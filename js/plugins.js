@@ -24,19 +24,19 @@ let games = null;
 }());
 
 //Init Typed.js after loading the languages
-initLanguage((header, photographer) => {
-  const options = {
-    strings: ['Developer', photographer, 'Pc-enthusiast', header],
-    typeSpeed: 40,
-    smartBackspace: true,
-    backSpeed: 30,
-    showCursor: false,
-    onComplete: function (self) {
-      $(".lead").css("opacity", "1");
-      animateCSS('.lead', 'fadeInUp');
-    }
-  };
-  const typed = new Typed('.typed', options);
+initLanguage().then((data) => {
+    const options = {
+      strings: ['Developer', data[1], 'Pc-enthusiast', data[0]],
+      typeSpeed: 40,
+      smartBackspace: true,
+      backSpeed: 30,
+      showCursor: false,
+      onComplete: function (self) {
+        $(".lead").css("opacity", "1");
+        animateCSS('.lead', 'fadeInUp');
+      }
+    };
+    const typed = new Typed('.typed', options);
 })
 
 //WOW
@@ -49,28 +49,28 @@ function onFormSubmit() {
 
 function onCaptchaSubmit(token) {
   $.post("captcha.php", { name: $("#nameInput").val(), email: $("#emailInput").val(), message: $("#messageInput").val(), token: token })
-    .done(function( data ) {
-      console.log(data);
-      if(data === "success") {
-        $('.invalid-feedback').css('display', 'none');
-        $('#contact-form').trigger("reset");
-        $('#form-sent-toast').toast('show')
-        $('#form-sent-toast').css('visibility','visible')
-        gtag('event', 'send', {
-          'event_category': 'contact',
-          'event_label': 'success'
+      .done(function( data ) {
+        console.log(data);
+        if(data === "success") {
+          $('.invalid-feedback').css('display', 'none');
+          $('#contact-form').trigger("reset");
+          $('#form-sent-toast').toast('show')
+          $('#form-sent-toast').css('visibility','visible')
+          gtag('event', 'send', {
+            'event_category': 'contact',
+            'event_label': 'success'
           });
-      } else {
-        $('.invalid-feedback').css('display', 'initial');
-        $('#form-captcha-fail').toast('show')
-        $('#form-captcha-fail').css('visibility','visible')
-        gtag('event', 'send', {
-          'event_category': 'contact',
-          'event_label': 'failure'
-        });
-      }
-      grecaptcha.reset()
-    });
+        } else {
+          $('.invalid-feedback').css('display', 'initial');
+          $('#form-captcha-fail').toast('show')
+          $('#form-captcha-fail').css('visibility','visible')
+          gtag('event', 'send', {
+            'event_category': 'contact',
+            'event_label': 'failure'
+          });
+        }
+        grecaptcha.reset()
+      });
   document.getElementById("contact-form").submit();
 }
 
@@ -125,19 +125,22 @@ $('#cookies').toast({
 })
 
 //i18n
-function initLanguage(cb) {
-  $.i18n({
-    locale: (getPreferedLanguage() === null) ? 'en' : getPreferedLanguage().slice(0,2)
-  });
-  $.i18n().load({
-    en: './translations/en.json',
-    nl: './translations/nl.json'
-  }).then(() => {
-    $('html').i18n();
-    cb($.i18n("masthead.header.final"),$.i18n("masthead.header.photographer"));
-    ($.i18n().locale === 'en') ? $('.en').css('text-decoration','underline') : $('.nl').css('text-decoration','underline')
-    getGameAmount()
-  });}
+async function initLanguage() {
+  return await new Promise((resolve) => {
+    $.i18n({
+      locale: (getPreferedLanguage() === null) ? 'en' : getPreferedLanguage().slice(0,2)
+    });
+    $.i18n().load({
+      en: './translations/en.json',
+      nl: './translations/nl.json'
+    }).then(async () => {
+      $('html').i18n();
+      ($.i18n().locale === 'en') ? $('.en').css('text-decoration','underline') : $('.nl').css('text-decoration','underline')
+      await getGameAmount()
+      resolve([$.i18n("masthead.header.final"),$.i18n("masthead.header.photographer")]);
+    });
+  })
+}
 
 function changeLanguage(lang) {
   $.i18n().locale = lang;
@@ -182,21 +185,30 @@ function getPreferedLanguage() {
 }
 
 //Get amount of games
-function getGameAmount() {
-  if(games == null) {
-    $.get("steamgames.php", function(data) {
-      games = data
-      let replaced = $('.aboutDesc').html().replace("%s", data)
+async function getGameAmount() {
+  await new Promise((resolve => {
+    if(games == null) {
+      $.get("steamgames.php", function(data) {
+        if(data === "") {
+          games = "350+"
+        } else {
+          games = data
+        }
+        let replaced = $('.aboutDesc').html().replace("%s", games)
+        $('.aboutDesc').html(replaced)
+        resolve()
+      }).fail(function () {
+        let replaced = $('.aboutDesc').html().replace("%s", "350+");
+        $('.aboutDesc').html(replaced)
+        games = "350+"
+        resolve()
+      });
+    } else {
+      let replaced = $('.aboutDesc').html().replace("%s", games);
       $('.aboutDesc').html(replaced)
-    }).fail(function () {
-      let replaced = $('.aboutDesc').html().replace("%s", "350+");
-      $('.aboutDesc').html(replaced)
-      games = "350+"
-    });
-  } else {
-    let replaced = $('.aboutDesc').html().replace("%s", games);
-    $('.aboutDesc').html(replaced)
-  }
+      resolve()
+    }
+  }));
 }
 
 //gtag events
