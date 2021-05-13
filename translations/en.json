@@ -61,7 +61,6 @@
   "contact.send": "Send",
   "contact.recaptcha.terms": "This site is protected by reCAPTCHA and the Google <a href='https://policies.google.com/privacy'>Privacy Policy</a> and <a href='https://policies.google.com/terms'>Terms of Service</a> apply.</small>",
   "contact.recaptcha.fail": "You have failed the captcha, please try submitting the form again.",
-  "footer.copy": "&copy; 2020 Jelle Glebbeek" ,
   "hireme.title": "Hire me",
   "hireme.text": "Do you have a project you need a developer for? I have tons of experience with all kinds of programming languages and projects. Contact me below if you are interested in hiring me for a project, or if you simply want some more information about the services I can provide.",
   "picinfo.title": "Picture info",

@@ -113,8 +113,7 @@ $.ajax({
 });
 
 //Set the copyright year to the current year
-document.getElementById("year").innerHTML = new Date().getFullYear().toString();
-
+document.getElementById("year").innerHTML = "2019-" + new Date().getFullYear().toString();
 
 //Automagically set age
 $("#age").html(calcAge(2002,6,9))
