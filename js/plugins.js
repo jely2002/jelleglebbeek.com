@@ -57,16 +57,16 @@ function onCaptchaSubmit(token) {
           $('#form-sent-toast').toast('show')
           $('#form-sent-toast').css('visibility','visible')
           gtag('event', 'send', {
-            'event_category': 'contact',
-            'event_label': 'success'
+            'category': 'contact',
+            'result': 'success'
           });
         } else {
           $('.invalid-feedback').css('display', 'initial');
           $('#form-captcha-fail').toast('show')
           $('#form-captcha-fail').css('visibility','visible')
           gtag('event', 'send', {
-            'event_category': 'contact',
-            'event_label': 'failure'
+            'category': 'contact',
+            'result': 'failure'
           });
         }
         grecaptcha.reset()
@@ -103,9 +103,8 @@ $('#form-captcha-fail').toast({
 $(document).on('click','.closeCookies',function (e) {
   $(this).closest('.toast').css('visibility','hidden');
   $.cookie("cookiesAgreed", "true", { expires: 365 });
-  gtag('event', 'click', {
-    'event_category': 'cookies',
-    'event_label': 'accept'
+  gtag('event', 'cookies', {
+    'result': 'accept'
   });
 });
 
@@ -154,9 +153,8 @@ function changeLanguage(lang) {
     $('.en').css('text-decoration','none')
   }
   getGameAmount()
-  gtag('event', 'click', {
-    'event_category': 'language',
-    'event_label': lang
+  gtag('event', 'change_language', {
+    'language': lang
   });
 }
 
@@ -211,33 +209,28 @@ async function getGameAmount() {
 //gtag events
 $(".nav-item").on('click', function(event) {
   if(!($(event.target).hasClass("en") || $(event.target).hasClass("nl"))) {
-    gtag('event', 'click', {
-      'event_category': 'navigation',
-      'event_label': $(event.target).html()
+    gtag('event', 'nav_click', {
+      'item': $(event.target).html()
     });
   }
 });
 
 $(".form-inline > a").on('click', function(event) {
   if($(event.target).parent().attr('destination') != null) {
-    gtag('event', 'click', {
-      'event_category': 'socials',
-      'event_label': $(event.target).parent().attr('destination')
+    gtag('event', 'socials_click', {
+      'item': $(event.target).parent().attr('destination')
     });
   }
 });
 
 $('#pictureInfoBtn').on('click', function(event) {
-  gtag('event', 'click', {
-    'event_category': 'picture-info'
-  });
+  gtag('event', 'picture_info');
 });
 
 $('a').on('click', function(event) {
   if($(event.target).attr('href') != null && $(event.target).attr('href').slice(0,1) !== "#") {
-    gtag('event', 'click', {
-      'event_category': 'external-link',
-      'event_label': $(event.target).attr('href')
+    gtag('event', 'external_link', {
+      'link': $(event.target).attr('href')
     });
   }
 });
