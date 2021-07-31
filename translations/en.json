@@ -62,7 +62,7 @@
   "contact.recaptcha.terms": "This site is protected by reCAPTCHA and the Google <a href='https://policies.google.com/privacy'>Privacy Policy</a> and <a href='https://policies.google.com/terms'>Terms of Service</a> apply.</small>",
   "contact.recaptcha.fail": "You have failed the captcha, please try submitting the form again.",
   "hireme.title": "Currently working for: Shockbyte",
-  "hireme.text": "Shockbyte is a hosting company that specialises in Minecraft, ARK, Rust, Terraria and Valheim game servers.<br><br><strong>Website:</strong> <a rel='noreferrer' href='https://shockbyte.com/'>shockbyte.com</a><strong><br>Start date: </strong>April 2021<br><strong>Position: </strong>Software Developer",
+  "hireme.text": "Shockbyte is a hosting company that specialises in Minecraft, ARK, Rust, Terraria and Valheim game servers.<br><br><strong>Website:</strong> <a rel='noreferrer' target='_blank' href='https://shockbyte.com/'>shockbyte.com</a><strong><br>Start date: </strong>April 2021<br><strong>Position: </strong>Software Developer",
   "picinfo.title": "Picture info",
   "picinfo.location": "Kuta, Bali, Indonesia\n            <span class=\"badge\"><i class=\"fas fa-map-marked-alt\"></i></span>",
   "picinfo.coords": " 8°45'47.6\"S 115°10'22.8\"E\n            <span class=\"badge\"><i class=\"fas fa-map-marker-alt\"></i></span>",
