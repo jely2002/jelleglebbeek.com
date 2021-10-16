@@ -202,10 +202,12 @@ _:-ms-fullscreen,:root .lead {
 }
 
 .lang-opt:hover {
+    transition: color 200ms;
     color: rgba(255,255,255,.75)!important;
 }
 
 .lang-opt {
+    transition: color 200ms;
     cursor: pointer;
 }
 
@@ -224,6 +226,16 @@ _:-ms-fullscreen,:root .lead {
 
 #hire img {
     width: 200px;
+}
+
+#discordPopover {
+    color: #fff;
+    transition: color 200ms;
+}
+
+#socials a:hover {
+    transition: color 200ms;
+    color: rgba(255,255,255,.75)!important;
 }
 
 codersrank-summary {
