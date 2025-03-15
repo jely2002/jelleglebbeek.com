@@ -188,18 +188,18 @@ async function getGameAmount() {
     if(games == null) {
       $.get("steamgames.php", function(data) {
         if(data === "") {
-          games = "350+"
+          games = "850+"
         } else {
           games = data
         }
-        let replaced = $('.aboutDesc').html().replace("350+", games)
+        let replaced = $('.aboutDesc').html().replace("850+", games)
         $('.aboutDesc').html(replaced)
         resolve()
       }).fail(function () {
         resolve()
       });
     } else {
-      let replaced = $('.aboutDesc').html().replace("350+", games);
+      let replaced = $('.aboutDesc').html().replace("850+", games);
       $('.aboutDesc').html(replaced)
       resolve()
     }

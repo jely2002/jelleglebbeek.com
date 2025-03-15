@@ -66,7 +66,7 @@ $('body').on('click', function (e) {
 
 //Copy to clipboard methods
 $('#discordPopover').on('show.bs.popover', function () {
-  copyTextToClipboard("jely2002#3553");
+  copyTextToClipboard("jely2002");
 });
 
 
