@@ -16,15 +16,20 @@ jobs:
       id: deployment
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        target-url: https://jelleglebbeek.com
+        target_url: https://jelleglebbeek.com
         environment: production
     - name: Deploy to SFTP server
-      uses: SamKirkland/FTP-Deploy-Action@3.0.0
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        ftp-server: sftp://${{ secrets.FTP_SERVER_PROD }}
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
-        git-ftp-args: --insecure
+        server: sftp://${{ secrets.FTP_SERVER_PROD }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        exclude: |
+          **/.git*
+          **/.git*/**
+          .github/*
+          .gitignore
+          README.md
     - name: Update deployment status (success)
       if: success()
       uses: chrnorm/deployment-status@releases/v1
