@@ -230,7 +230,9 @@ _:-ms-fullscreen,:root .lead {
 }
 
 #hire img {
-    width: 200px;
+    object-fit: contain;
+    width: 100%;
+    height: 200px;
 }
 
 #discordPopover {

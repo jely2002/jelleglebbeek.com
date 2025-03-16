@@ -7,6 +7,7 @@ jobs:
   FTP-Deploy-Action:
     name: SFTP Upload
     runs-on: ubuntu-latest
+    environment: production
     steps:
     - uses: actions/checkout@master
       with:
@@ -16,21 +17,24 @@ jobs:
       id: deployment
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        target-url: https://jelleglebbeek.com
+        target_url: https://jelleglebbeek.com
         environment: production
     - name: Deploy to SFTP server
-      uses: SamKirkland/FTP-Deploy-Action@3.0.0
+      uses: appleboy/scp-action@v0.1.7
       with:
-        ftp-server: sftp://${{ secrets.FTP_SERVER_PROD }}
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
-        git-ftp-args: --insecure
+        host: ${{ secrets.TARGET_SERVER }}
+        username: ${{ secrets.TARGET_USER }}
+        password: ${{ secrets.TARGET_PASS }}
+        port: ${{ secrets.TARGET_PORT }}
+        source: ".,!.gitignore,!.git/**,!.github/**,!README.md,!LICENSE.txt"
+        target: ${{ secrets.TARGET_PATH }}
+        overwrite: true
     - name: Update deployment status (success)
       if: success()
       uses: chrnorm/deployment-status@releases/v1
       with:
         token: ${{ github.token }}
-        target-url: https://jelleglebbeek.com
+        target_url: https://jelleglebbeek.com
         state: success
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
     - name: Update deployment status (failure)
@@ -38,6 +42,6 @@ jobs:
       uses: chrnorm/deployment-status@releases/v1
       with:
         token: ${{ github.token }}
-        target-url: https://jelleglebbeek.com
+        target_url: https://jelleglebbeek.com
         state: failure
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
