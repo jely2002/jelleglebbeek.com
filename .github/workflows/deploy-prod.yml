@@ -7,6 +7,7 @@ jobs:
   FTP-Deploy-Action:
     name: SFTP Upload
     runs-on: ubuntu-latest
+    environment: production
     steps:
     - uses: actions/checkout@master
       with:
@@ -19,23 +20,18 @@ jobs:
         target_url: https://jelleglebbeek.com
         environment: production
     - name: Deploy to SFTP server
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      uses: SamKirkland/web-deploy@v1
       with:
-        server: sftp://${{ secrets.FTP_SERVER_PROD }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        exclude: |
-          **/.git*
-          **/.git*/**
-          .github/*
-          .gitignore
-          README.md
+        target-server: ${{ secrets.TARGET_SERVER }}
+        remote-user: ${{ secrets.TARGET_USER }}
+        private-ssh-key: ${{ secrets.TARGET_PASS }}
+        destination-path: ${{ secrets.TARGET_PATH }}
     - name: Update deployment status (success)
       if: success()
       uses: chrnorm/deployment-status@releases/v1
       with:
         token: ${{ github.token }}
-        target-url: https://jelleglebbeek.com
+        target_url: https://jelleglebbeek.com
         state: success
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
     - name: Update deployment status (failure)
@@ -43,6 +39,6 @@ jobs:
       uses: chrnorm/deployment-status@releases/v1
       with:
         token: ${{ github.token }}
-        target-url: https://jelleglebbeek.com
+        target_url: https://jelleglebbeek.com
         state: failure
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
